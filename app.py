@@ -24,4 +24,7 @@ input_array = np.array([[cgpa,Intern,projects,Work,app,soft,Extra,training,ssc,h
 if st.button('Predict'):
     input_array = ct.transform(input_array)
     pred = model.predict(input_array)
-    st.text(pred.item())
+    if pred.item() == 'Placed':
+        st.success(pred.item())
+    else :
+        st.error(pred.item())
